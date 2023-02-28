@@ -1,0 +1,3 @@
+run npm i  deprecated-react-native-prop-types 
+go to /node-modules/react-native-camera/src/RNCamera.js
+delete the imported ViewPropTypes from 'react-native'
