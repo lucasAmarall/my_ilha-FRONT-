@@ -1,7 +1,7 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Source } from 'react-native-fast-image';
 import { useSelector } from 'react-redux';
 import { Paths } from '../../constants/Paths';
@@ -46,11 +46,11 @@ const Item = ({
           resizeMode="contain"
         />
         <Spacer space={4} />
-        <Text
+        {/* <Text
           style={[styles.text2(), styles.fontWeight(active ? '700' : '500')]}
         >
           {label}
-        </Text>
+        </Text> */}
       </View>
     </TouchFeedback>
   );
@@ -79,15 +79,21 @@ const BottomNavigation: React.FC<BottomTabBarProps> = props => {
       style={[
         { display: options?.options?.tabBarStyle?.display },
         styles.absolute(),
+        styles.width('100%'),
+        styles.alignItems('center'),
+        styles.justifyContent('center'),
         styles.bottom(40),
         styles.left(styles.containerPadding().paddingHorizontal),
         styles.right(styles.containerPadding().paddingHorizontal),
+        styles.boxShadow('secondary'),
       ]}
     >
       <View
         style={[
-          styles.borderRadius(24),
-          styles.height(70),
+          styles.width('60%'),
+          styles.borderRadius(32),
+          styles.paddingVertical(16),
+          styles.paddingHorizontal(16),
           styles.bgColor('light_gray'),
           styles.boxShadow('primary'),
           styles.row(),

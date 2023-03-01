@@ -1,10 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import {
-  Appearance,
-  ColorSchemeName,
-  Dimensions,
-  FlexAlignType,
-} from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { Dimensions, FlexAlignType } from 'react-native';
 import { useNormalizeSize } from './normalizeSize';
 import { themeColor } from './theme';
 
@@ -12,22 +7,20 @@ const useStyles = () => {
   const { normalizeSize } = useNormalizeSize();
   const [schema, setSchema] = useState<'light' | 'dark'>('dark');
 
-  const changeSchemaColor = useCallback(
-    ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
-      if (colorScheme != schema) {
-        setSchema(s => colorScheme || s);
-      }
-    },
-    [schema],
-  );
+  // const changeSchemaColor = useCallback(
+  //   ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
+  //     if (colorScheme != schema) {
+  //       setSchema(s => colorScheme || s);
+  //     }
+  //   },
+  //   [schema],
+  // );
 
   useEffect(() => {
-    const subscription = Appearance.addChangeListener(changeSchemaColor);
-
-    return () => {
-      subscription.remove();
-    };
-  }, [changeSchemaColor]);
+    // return () => {
+    //   subscription.remove();
+    // };
+  }, []);
 
   const theme = useMemo(() => themeColor[schema], [schema]);
 
@@ -49,20 +42,48 @@ const useStyles = () => {
       }),
       alignContent: (alignContent: IAlignContent) => ({ alignContent }),
 
-      marginTop: (i: number) => ({ marginTop: normalizeSize(i) }),
-      marginLeft: (i: number) => ({ marginLeft: normalizeSize(i) }),
-      marginRight: (i: number) => ({ marginRight: normalizeSize(i) }),
-      marginBottom: (i: number) => ({ marginBottom: normalizeSize(i) }),
-      marginVertical: (i: number) => ({ marginVertical: normalizeSize(i) }),
-      marginHorizontal: (i: number) => ({ marginHorizontal: normalizeSize(i) }),
+      marginTop: (i: number | string) => ({
+        marginTop: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      marginLeft: (i: number | string) => ({
+        marginLeft: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      marginRight: (i: number | string) => ({
+        marginRight: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      marginBottom: (i: number | string) => ({
+        marginBottom: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      marginVertical: (i: number | string) => ({
+        marginVertical: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      marginHorizontal: (i: number | string) => ({
+        marginHorizontal: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      margin: (i: number | string) => ({
+        margin: typeof i === 'string' ? i : normalizeSize(i),
+      }),
 
-      paddingTop: (i: number) => ({ paddingTop: normalizeSize(i) }),
-      paddingLeft: (i: number) => ({ paddingLeft: normalizeSize(i) }),
-      paddingRight: (i: number) => ({ paddingRight: normalizeSize(i) }),
-      paddingBottom: (i: number) => ({ paddingBottom: normalizeSize(i) }),
-      paddingVertical: (i: number) => ({ paddingVertical: normalizeSize(i) }),
-      paddingHorizontal: (i: number) => ({
-        paddingHorizontal: normalizeSize(i),
+      padding: (i: number | string) => ({
+        padding: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingTop: (i: number | string) => ({
+        paddingTop: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingLeft: (i: number | string) => ({
+        paddingLeft: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingRight: (i: number | string) => ({
+        paddingRight: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingBottom: (i: number | string) => ({
+        paddingBottom: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingVertical: (i: number | string) => ({
+        paddingVertical: typeof i === 'string' ? i : normalizeSize(i),
+      }),
+      paddingHorizontal: (i: number | string) => ({
+        paddingHorizontal: typeof i === 'string' ? i : normalizeSize(i),
       }),
 
       borderWidth: (i: number) => ({ borderWidth: normalizeSize(i) }),
@@ -159,48 +180,54 @@ const useStyles = () => {
 
       text1: () => ({
         fontFamily: 'Poppins',
-        fontStyle: 'normal' as 'normal',
+        color: theme.fonts.primary,
         fontSize: normalizeSize(16),
         fontWeight: '400' as '400',
       }),
 
       text2: () => ({
         fontFamily: 'Poppins',
-        fontStyle: 'normal' as 'normal',
+        color: theme.fonts.primary,
         fontSize: normalizeSize(14),
         fontWeight: '500' as '500',
       }),
 
       text3: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontWeight: '300' as '300',
         fontSize: normalizeSize(16),
       }),
 
       text4: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontWeight: '600' as '600',
         fontSize: normalizeSize(16),
       }),
 
       text5: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontWeight: '700' as '700',
         fontSize: normalizeSize(32),
       }),
       text6: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontWeight: '600' as '600',
         fontSize: normalizeSize(32),
       }),
       text7: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontWeight: '600' as '600',
         fontSize: normalizeSize(18),
         lineHeight: normalizeSize(21),
       }),
       text8: () => ({
         fontFamily: 'Poppins',
+        color: theme.fonts.primary,
         fontStyle: 'normal' as 'normal',
         fontSize: normalizeSize(10),
         fontWeight: '500' as '500',

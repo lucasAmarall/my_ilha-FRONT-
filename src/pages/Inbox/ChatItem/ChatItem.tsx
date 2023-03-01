@@ -13,12 +13,7 @@ const ChatItem = ({ item }: { item: any }) => {
 
   return (
     <TouchFeedback onPress={() => navigate(Paths.chat)}>
-      <View
-        style={[
-          styles.width('100%'),
-          styles.paddingLeft(styles.containerPadding().paddingHorizontal),
-        ]}
-      >
+      <View style={[styles.width('100%')]}>
         <View style={[styles.row()]}>
           <Image
             style={[
@@ -39,10 +34,10 @@ const ChatItem = ({ item }: { item: any }) => {
               styles.borderColor('lighter_gray'),
             ]}
           >
-            <Spacer space={12} />
-            <Text style={[styles.text4(), styles.fontColor('light_gray')]}>
+            <Text style={[styles.text4(), styles.fontColor('primary')]}>
               Fulana
             </Text>
+            <Spacer space={8} />
             <Text style={[styles.text2(), styles.fontColor('gray')]}>❤️</Text>
             <Spacer space={12} />
           </View>

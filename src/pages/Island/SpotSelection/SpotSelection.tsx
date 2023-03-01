@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../../components/Button/Button';
 import { Image } from '../../../components/Image/Image';
 import { Screen } from '../../../components/Screen/Screen';
+import { SectionLink } from '../../../components/SectionLink/SectionLink';
 import { Spacer } from '../../../components/Spacer/Spacer';
 import { TouchFeedback } from '../../../components/TouchFeedback/TouchFeedback';
 import { assets } from '../../../hooks/theme/assets';
@@ -119,31 +120,12 @@ const SpotSelection = ({
             style={[styles.antiContainer()]}
             ListHeaderComponent={header}
             renderItem={({ item }) => (
-              <TouchFeedback
-                onlyHaptic
-                activeOpacity={0.5}
+              <SectionLink
                 onPress={() => changeSpot(item.id)}
-              >
-                <View
-                  style={[
-                    styles.width('100%'),
-                    styles.bgColor('white'),
-                    styles.marginBottom(12),
-                    styles.containerPadding(),
-                    styles.paddingVertical(12),
-                  ]}
-                >
-                  <Text style={[styles.text2()]}>
-                    {item.name}{' '}
-                    {item.id === active_id && (
-                      <Image
-                        source={assets.check_icon}
-                        style={[styles.width(20), styles.height(20)]}
-                      />
-                    )}
-                  </Text>
-                </View>
-              </TouchFeedback>
+                value={item.id === active_id ? '*' : ''}
+                label={item.name}
+                icon="location_icon"
+              />
             )}
           />
           <Spacer space={12} />

@@ -2,11 +2,13 @@ const COLORS = {
   backgrounds: {
     primary: '#FFFFFF',
     secondary: '#000',
+    tertiary: '#f9f8fd',
     light_gray: '#EFF0F7',
     green: '#F2FFFC',
     red: '#FFF3F8',
     lighter_gray: '#eff0f133',
     purple: '#5F2EEA',
+    pink: '#ED2E7E',
     white: '#fff',
     black: '#000',
     gray: 'rgba(53,53,53)',
@@ -27,7 +29,7 @@ const COLORS = {
     white: '#fff',
     black: '#000',
     light_gray: '#EFF0F7',
-    lighter_gray: '#eff0f133',
+    lighter_gray: '#eff0f1',
     primary: '#E4DAFF',
     green: '#00966D',
     red: '#ED2E7E',
@@ -64,11 +66,16 @@ export const themeColor = {
       ...COLORS.backgrounds,
       primary: '#0c0d11',
       secondary: '#fff',
+      tertiary: '#fff',
     },
     fonts: {
       ...COLORS.fonts,
       primary: '#fff',
       secondary: '#0c0d11',
+    },
+    borders: {
+      ...COLORS.borders,
+      lighter_gray: '#eff0f133',
     },
     shadows: {
       primary: {

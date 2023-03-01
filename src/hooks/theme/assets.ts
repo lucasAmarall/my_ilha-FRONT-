@@ -17,6 +17,8 @@ const assets = {
   forward_icon: require('../../assets/forward_icon.png'),
   check_icon: require('../../assets/check_icon.png'),
   green_checked: require('../../assets/green_checked.png'),
+  location_icon: require('../../assets/location_icon.png'),
+  edit_icon: require('../../assets/edit_icon.png'),
 };
 
 export { assets };

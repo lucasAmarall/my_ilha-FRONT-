@@ -1,4 +1,4 @@
 type ISpacerProps = {
-  space: number;
+  space?: number;
   vertical?: boolean;
 };

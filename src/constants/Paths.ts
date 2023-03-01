@@ -10,5 +10,7 @@ export enum Paths {
   'new' = 'new',
   'menu' = 'menu',
   'profile' = 'profile',
+  'profile_stack' = 'profile_stack',
   'chat' = 'chat',
+  'update_text_field' = 'update_text_field',
 }

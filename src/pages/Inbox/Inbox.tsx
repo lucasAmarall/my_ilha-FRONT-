@@ -23,7 +23,7 @@ const Inbox = () => {
 
   const headerComponent = useCallback(() => {
     return (
-      <View style={[styles.containerPadding()]}>
+      <View>
         <Text style={[styles.text6(), styles.fontColor('primary')]}>
           Matches
         </Text>
@@ -51,15 +51,14 @@ const Inbox = () => {
 
   return (
     <Screen>
-      <View style={[styles.antiContainer(), styles.flex()]}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={chats}
-          ListHeaderComponent={headerComponent}
-          renderItem={renderItem}
-          ListFooterComponent={<Spacer space={130} />}
-        />
-      </View>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={chats}
+        ListHeaderComponent={headerComponent}
+        renderItem={renderItem}
+        ItemSeparatorComponent={() => <Spacer space={12} />}
+        ListFooterComponent={<Spacer space={130} />}
+      />
     </Screen>
   );
 };

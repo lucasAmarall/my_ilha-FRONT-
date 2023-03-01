@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Animated, TextInput, TextInputProps, View } from 'react-native';
 import { useStyles } from '../../hooks/theme/styles';
 import { LoaderIcon } from '../LoaderIcon/LoaderIcon';
@@ -39,6 +39,7 @@ const Input: React.FC<
     bordersRadius,
   });
   const { styles } = useStyles();
+  const inputRef = useRef<TextInput | null>(null);
 
   return (
     <View style={[styles.width('100%'), styles.relative(), styles.height(56)]}>
@@ -80,8 +81,9 @@ const Input: React.FC<
           ]}
         >
           <TextInput
-            numberOfLines={1}
             {...props}
+            ref={inputRef}
+            numberOfLines={1}
             onBlur={e => {
               setFocused(false);
               onBlur?.(e);
